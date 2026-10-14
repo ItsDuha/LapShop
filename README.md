@@ -25,9 +25,9 @@ A learning project built to practice developing a complete e-commerce web applic
 - Admin dashboard
 - API documentation using Swagger
 
-## Project Walkthrough
+## Video
 
-A short video demonstrating the website:
+Here's a short walkthrough of the website:
 
 https://github.com/user-attachments/assets/8c6595ea-ff9c-4778-aa18-75a7431f309c
 
@@ -39,6 +39,7 @@ https://github.com/user-attachments/assets/8c6595ea-ff9c-4778-aa18-75a7431f309c
 - Implementing authentication with Identity and JWT
 - Understanding when design patterns, such as the Repository Pattern, are useful and when they may not be necessary
 - Testing RESTful APIs using Postman
+- Designing relational databases
 - Integrating a frontend template with backend functionality
 
 ## Note
