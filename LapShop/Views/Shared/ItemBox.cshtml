@@ -1,0 +1,38 @@
+﻿@model VwItem
+<div class="img-wrapper">
+    <div class="front">
+        <a asp-controller="Items" asp-action="ItemsDetails" asp-route-id="@Model.ItemId">
+            <img src="~/Uploads/Items/@Model.ImageName"
+                 class="img-fluid blur-up lazyload bg-img"
+                 alt="">
+        </a>
+    </div>
+    <div class="cart-info cart-wrap">
+        <a asp-controller="Order" asp-action="AddToCart"
+           asp-route-itemId="@Model.ItemId"
+           title="Add to Wishlist" tabindex="0">
+            <i class="ti-heart"
+               aria-hidden="true"></i>
+        </a>
+        <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View" tabindex="0">
+            <i class="ti-search" aria-hidden="true"></i>
+        </a>
+        <a href="compare.html" title="Compare" tabindex="0">
+            <i class="ti-reload"
+               aria-hidden="true"></i>
+        </a>
+    </div>
+    <a asp-controller="Order" asp-action="AddToCart"
+           asp-route-itemId="@Model.ItemId" class="add-button">
+        add to
+        cart
+    </a>
+</div>
+<div class="product-detail">
+
+    <!-- mt-3 adds a medium top margin; use mt-1, mt-2, mt-3, mt-4, or mt-5 to adjust height -->
+    <a href="product-page(no-sidebar).html" class="mt-3 d-inline-block">
+        <h6>@Model.ItemName</h6>
+    </a>
+    <h4>$@Model.SalesPrice</h4>
+</div>

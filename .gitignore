@@ -1,0 +1,38 @@
+# Visual Studio
+.vs/
+
+# Build folders
+**/bin/
+**/obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Local secrets and configuration
+secrets.json
+appsettings.*.json
+
+# User Secrets and local environment files
+.env
+.env.*
+
+.git-old-backup/

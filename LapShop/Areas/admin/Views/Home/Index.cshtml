@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+
+    string rawName = User.Identity?.Name ?? "Admin";
+    string displayName = rawName.Contains("@") ? rawName.Split('@')[0] : rawName;
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                <i class="mdi mdi-home"></i>
+            </span>
+            Dashboard
+        </h3>
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <span>Overview</span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card bg-gradient-primary text-white">
+                <div class="card-body p-4">
+                    <h3>Welcome back, @displayName!</h3>
+                    <p class="mb-0">Manage your product categories and  items quickly from here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 stretch-card grid-margin">
+            <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                    <img src="~/Admin/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Categories <i class="mdi mdi-clipboard-text mdi-24px float-end"></i>
+                    </h4>
+                    <p class="card-text mb-4">Organize and manage item categories.</p>
+                    <a href="/admin/Categories/List" class="btn btn-light btn-sm font-weight-bold text-info">View Categories</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 stretch-card grid-margin">
+            <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                    <img src="~/Admin/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Items <i class="mdi mdi-chart-bar mdi-24px float-end"></i>
+                    </h4>
+                    <p class="card-text mb-4">Manage products and inventory items.</p>
+                    <a href="/admin/Items/List" class="btn btn-light btn-sm font-weight-bold text-success">View Items</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+﻿@model TbSalesInvoice
+
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Order Details</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a asp-action="MyOrders">My Orders</a>
+                        </li>
+                        <li class="breadcrumb-item active">Order #@Model.InvoiceId</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="cart-section section-b-space">
+    <div class="container">
+        <div class="checkout-page">
+            <div class="checkout-form">
+                <div class="row">
+
+                    <div class="col-lg-8 offset-lg-2 col-sm-12">
+                        <div class="checkout-details">
+                            <div class="order-box" style="padding: 30px;">
+
+                                <div class="checkout-title" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                                    <h3>Receipt Summary</h3>
+                                    <span style="font-size: 16px; color: #777777;">Order ID: <strong>#@Model.InvoiceId</strong></span>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table cart-table" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="border-top: none;">Product</th>
+                                                <th style="border-top: none; text-align: center;">Qty</th>
+                                                <th style="border-top: none; text-align: right;">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.TbSalesInvoiceItems)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex; align-items: center; justify-content: flex-start; wrap: nowrap;">
+
+                                                            <img src="~/Uploads/Items/@item.Item.ImageName"
+                                                                 alt=""
+                                                                 style="width: 50px; height: 50px; object-fit: contain; border: 1px solid #eee; border-radius: 4px; background-color: #fff; margin-right: 15px; flex-shrink: 0; display: block;" />
+
+                                                            <span style="display: inline-block; white-space: normal;">@item.Item.ItemName</span>
+                                                        </div>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle;">@item.Qty</td>
+                                                    <td style="text-align: right; vertical-align: middle;">$@(item.InvoicePrice * (decimal)item.Qty)</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="2" style="border-top: 1px solid #ddd; padding-top: 15px;">
+                                                    <strong>Total</strong>
+                                                </td>
+                                                <td style="text-align: right; border-top: 1px solid #ddd; padding-top: 15px;">
+                                                    <strong>
+                                                        $@Model.TbSalesInvoiceItems.Sum(x => x.InvoicePrice * (decimal)x.Qty)
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd; display: flex; justify-content: space-between; align-items: center;">
+                                    <p style="margin: 0;">
+                                        <strong>Expected Delivery:</strong> Within 1 Week
+                                    </p>
+                                    <a asp-action="MyOrders" class="btn btn-solid">
+                                        Back To My Orders
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

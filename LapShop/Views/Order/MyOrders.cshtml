@@ -1,0 +1,83 @@
+﻿@model List<VwSalesInvoice>
+
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>My Orders</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">My Orders</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="cart-section section-b-space">
+    <div class="container">
+        <div class="checkout-page">
+            <div class="checkout-form">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="checkout-details">
+                            <div class="order-box" style="padding: 30px;">
+
+                                <div class="checkout-title" style="margin-bottom: 20px;">
+                                    <h3>Orders</h3>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table cart-table" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="border-top: none;">Order</th>
+                                                <th style="border-top: none;">Date</th>
+                                                <th style="border-top: none;">Delivery Date</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <strong>#@item.InvoiceId</strong>
+                                                    </td>
+                                                    <td>
+                                                        @item.InvoiceDate.ToShortDateString()
+                                                    </td>
+                                                    <td>
+                                                        <span class="small-text" style="color: #777777;">Within 1 Week</span>
+                                                    </td>
+                                                    <td class="text-right" style="text-align: right;">
+                                                        <a asp-controller="Order"
+                                                           asp-action="OrderDetails"
+                                                           asp-route-id="@item.InvoiceId"
+                                                           class="btn btn-solid btn-sm">
+                                                            View Details
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
