@@ -29,7 +29,7 @@ A learning project built to practice developing a complete e-commerce web applic
 
 Here's a short walkthrough of the website:
 
-https://github.com/user-attachments/assets/8c6595ea-ff9c-4778-aa18-75a7431f309c
+[https://github.com/user-attachments/assets/8c6595ea-ff9c-4778-aa18-75a7431f309c](https://github.com/user-attachments/assets/8c6595ea-ff9c-4778-aa18-75a7431f309c)
 
 ## What I Learned
 
